@@ -20,6 +20,15 @@ class UserForm extends React.Component {
       this.setState({[name]: event.target.value})
     }
 
+    // handleChange = (event, index) => {
+    //   var name = event.target.name
+    //   var group = event.target.getAttribute("group")
+    //   var newAr = this.state[group].concat([]);
+    //   newAr[index][name] = event.target.value;
+    //   console.log(`${group}, ${name}: ${event.target.value}`)
+    //   this.setState({[group]: newAr})
+    // }
+
   updateState = () => {
     // var userStat = false
     // var userIP = this.state.IPAddress
@@ -101,7 +110,7 @@ class UserForm extends React.Component {
                   onClick={() => {
                     this.updateState(this.state.serverName,this.state.IPAddress)
                     this.props.addData(this.state)
-                    console.log(this.state)
+                    
                     }
                   }>
                   Next

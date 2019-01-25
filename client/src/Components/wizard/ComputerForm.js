@@ -13,10 +13,24 @@ class ComputerForm extends React.Component {
       IPAddress: '',
     }
 
-    handleChange = (event) => {
-      var name = event.target.name
-      this.setState({[name]: event.target.value})
-    }
+    // handleChange = (event) => {
+    //   var name = event.target.name
+    //   this.setState({[name]: event.target.value})
+    // }
+
+  handleChange = (event, index) => {
+    var name = event.target.name
+    var group = event.target.getAttribute("group")
+    var newAr = this.state[group].concat([]);
+    newAr[index][name] = event.target.value;
+    console.log(`${group}, ${name}: ${event.target.value}`)
+    this.setState({[group]: newAr})
+  }
+
+  addComputer = () => {
+    var joined = this.state.computers.concat({name: '', computerIPAddress: ''});
+    this.setState({ computers: joined })
+  }
 
   updateState = () => {
     var compStat = false
@@ -34,39 +48,44 @@ class ComputerForm extends React.Component {
     console.log("new entry triggered")
   }
 
-  render(){
+  render() {
     return (
       <>
         <Typography variant="h6" gutterBottom>
           Computer Information
         </Typography>
         <Grid container spacing={24}>
-          <Grid item xs={12} sm={5}>
-                <TextField
+        <Grid item xs={12} sm={5}>
+            {this.state.computers.map((e,i) => {
+              return <TextField
                 required
                 id="computerName"
+                inputProps={{group: "computers"}}
                 name="computerName"
                 label="Computer Name"
                 fullWidth
                 autoComplete="fname"
-                value={this.state.computerName}
-                onChange={this.handleChange}
+                value={this.state.computers[i].computerName}
+                onChange={(e) => this.handleChange(e, i)}
               />
+            })}
           </Grid>
           <Grid item xs={12} sm={5}>
-              <TextField
+          {this.state.computers.map((e,i) => {
+              return <TextField
               required
-              id="IPAddress"
-              name="IPAddress"
+              id="computerIPAddress"
+              inputProps={{group: "computers"}}
+              name="computerIPAddress"
               label="Computer IP Address"
               fullWidth
               autoComplete="fname"
-              value={this.state.IPAddress}
-              onChange={this.handleChange}
-          />
+              value={this.state.computers[i].computerIPAddress}
+              onChange={(e) => this.handleChange(e, i)}
+          />})}
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Button onClick={this.updateState}><FAB >New Entry</FAB></Button>
+            <Button onClick={this.addComputer}><FAB >New Entry</FAB></Button>
           </Grid>
           <Grid item xs={12}>
               <Button
@@ -75,7 +94,7 @@ class ComputerForm extends React.Component {
                   onClick={() => {
                     this.updateState(this.state.computerName,this.state.IPAddress)
                     this.props.addData(this.state)
-                    console.log(this.state)
+                    
                     }
                   }>
                   Next

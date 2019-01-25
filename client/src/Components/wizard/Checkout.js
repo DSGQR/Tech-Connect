@@ -17,6 +17,7 @@ import ComputerForm from './ComputerForm'
 import ServerForm from './ServerForm'
 import FirewallForm from './FirewallForm'
 import FileShare from './FileShare'
+import axios from 'axios'
 
 
 const styles = theme => ({
@@ -131,6 +132,17 @@ class Checkout extends React.Component {
       ]
 }
 
+finishSteps = async function (e) {
+  let result = await new Promise((resolve, reject) => {
+    this.setState({
+      service: e,
+      activeStep: this.state.activeStep + 1
+    });
+    resolve(true)
+  })
+  return result
+}
+
   getStepContent = (step) => {
     switch (step) {
       case 0:
@@ -185,10 +197,18 @@ class Checkout extends React.Component {
     />);
       case 6:
         return (<ServiceForm addData={(e) => {
-          this.setState({
-            service: e,
-            activeStep: this.state.activeStep + 1
-          });
+          this.finishSteps(e)
+            .then(r => {
+              if (r) {
+                console.log(this.state)
+                const clone = Object.assign({}, this.state);
+                delete clone.activeStep;
+                axios.post('/organization', clone)
+                setImmediate(() => console.log(this.state))
+                // insert db request here...
+
+              }
+            })
         }}
       />);
       default:

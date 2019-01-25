@@ -133,7 +133,7 @@ class ServiceForm extends React.Component {
                           color="primary"
                           onClick={() => {
                             this.props.addData(this.state)
-                            // console.log(this.state)
+                            
                           }
                           }
                 >

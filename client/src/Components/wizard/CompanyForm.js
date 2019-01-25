@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 class CompanyForm extends React.Component{
   state = {
-    companyName:'',
+    name:'',
     address1:'',
     address2:'',
     city:'',
@@ -30,12 +30,12 @@ class CompanyForm extends React.Component{
           <Grid item xs={12}>
             <TextField
               required
-              id="companyName"
-              name="companyName"
+              id="name"
+              name="name"
               label="Company Name"
               fullWidth
               autoComplete="fname"
-              value={this.state.companyName}
+              value={this.state.name}
               onChange={this.handleChange}
             />
           </Grid>
@@ -115,8 +115,7 @@ class CompanyForm extends React.Component{
                           color="primary"
                           onClick={() => {
                             this.props.addData(this.state)
-                            // console.log(this.state)
-                          }
+                           }
                           }
                 >
                           Next

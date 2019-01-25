@@ -48,16 +48,16 @@ const styles = theme => ({
         </AppBar>
         <div className={classes.root}>
           <Grid container spacing={24} style={{marginLeft:0.1}}>
-            <Grid item xs={3} style={{marginTop:'100px'}} >
-              <a href='/onboarding'><Card1 /></a>
+            <Grid item xs={12} md={6} lg={3} style={{marginTop:'100px'}} >
+              <a style={{textDecoration:'none'}} href='/onboarding'><Card1 /></a>
             </Grid>
-            <Grid item xs={3} style={{marginTop:'100px'}}>
-            <a href='/onboarding'><Card2 /></a>
+            <Grid item xs={12} md={6} lg={3} style={{marginTop:'100px'}}>
+            <a style={{textDecoration:'none'}} href='/onboarding'><Card2 /></a>
             </Grid>
-            <Grid item xs={3} style={{marginTop:'100px'}}>
+            <Grid item xs={12} md={6} lg={3} style={{marginTop:'100px'}}>
               <Card3 />
             </Grid>
-            <Grid item xs={3} style={{marginTop:'100px'}}>
+            <Grid item xs={12} md={6} lg={3} style={{marginTop:'100px'}}>
               <Card4 />
             </Grid>
           </Grid>

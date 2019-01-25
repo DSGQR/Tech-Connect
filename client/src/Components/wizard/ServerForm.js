@@ -75,7 +75,7 @@ class ServerForm extends React.Component {
                   onClick={() => {
                     this.updateState(this.state.serverName,this.state.IPAddress)
                     this.props.addData(this.state)
-                    console.log(this.state)
+                    
                     }
                   }>
                   Next
