@@ -1,0 +1,11 @@
+.loader {    
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    left: 0;
+    margin: auto;
+    background-image: url(./img/Loading.jpg);
+    display: table;
+    background-size: cover;
+}
