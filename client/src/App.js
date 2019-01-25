@@ -11,7 +11,7 @@ import firebase from 'firebase'
 
 const config = {
   apiKey: "AIzaSyANTWkjI1OJU4bLZAaA3fhMaXeMb630Sw8",
-  authDomain: "https://p3-tech-connect.herokuapp.com/",
+  authDomain: "p3-techconnect.firebaseapp.com",
   databaseURL: "https://p3-techconnect.firebaseio.com",
   projectId: "p3-techconnect",
   storageBucket: "p3-techconnect.appspot.com",
