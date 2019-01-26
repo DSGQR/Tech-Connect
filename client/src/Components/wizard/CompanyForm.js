@@ -4,23 +4,23 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-class CompanyForm extends React.Component{
+class CompanyForm extends React.Component {
   state = {
-    name:'',
-    address1:'',
-    address2:'',
-    city:'',
-    state:'',
-    zip:'',
-    country:''
+    name: '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zip: '',
+    country: ''
   }
 
   handleChange = event => {
     var name = event.target.name
-      this.setState({[name]: event.target.value})
+    this.setState({ [name]: event.target.value })
   }
 
-  render(){
+  render() {
     return (
       <>
         <Typography variant="h6" gutterBottom>
@@ -76,13 +76,13 @@ class CompanyForm extends React.Component{
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-             id="state"
-             name="state"
-             label="State/Province/Region"
-             fullWidth
-             value={this.state.state}
-             onChange={this.handleChange}
-             />
+              id="state"
+              name="state"
+              label="State/Province/Region"
+              fullWidth
+              value={this.state.state}
+              onChange={this.handleChange}
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -107,25 +107,23 @@ class CompanyForm extends React.Component{
               value={this.state.country}
               onChange={this.handleChange}
             />
-            
+
           </Grid>
           <Grid item xs={12}>
-              <Button
-                          variant="contained"
-                          color="primary"
-                          onClick={() => {
-                            this.props.addData(this.state)
-                           }
-                          }
-                >
-                          Next
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                this.props.addData(this.state)
+              }}>
+              Next
               </Button>
           </Grid>
         </Grid>
       </>
     );
   }
-  
+
 }
 
 export default CompanyForm;

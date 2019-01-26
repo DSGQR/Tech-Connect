@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
-let mongooseurl = 'mongodb://<dbuser>:<dbpassword>@ds249824.mlab.com:49824/heroku_41cjg6ml'
+let mongooseurl = 'mongodb://amini.daniel@gmail.com:DUm-8hu-rqQ-JV6@ds249824.mlab.com:49824/heroku_41cjg6ml'
 mongoose.connect(mongooseurl, { useNewUrlParser: true })
+// mongoose.connect('mongodb://localhost/tech-connect-test', { useNewUrlParser: true })
 const Schema = mongoose.Schema
 
 const CompanySchema = new Schema({
